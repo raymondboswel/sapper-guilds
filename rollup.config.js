@@ -10,6 +10,8 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import postcss from "rollup-plugin-postcss";
 
+const { preprocess } = require("./svelte.config");
+
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
@@ -35,6 +37,7 @@ export default {
           hydratable: true,
           css: true,
         },
+        preprocess,
         emitCss: false,
       }),
       url({
@@ -107,6 +110,7 @@ export default {
           generate: "ssr",
           hydratable: true,
         },
+        preprocess,
         emitCss: false,
       }),
       url({

@@ -49,6 +49,6 @@
 	<figcaption>Have fun with Sapper!</figcaption>
 </figure>
 
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong>
+<p class="flex flex-col"><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong>
 	<Button><Label>Material Button</Label></Button>
 </p>
