@@ -902,6 +902,18 @@
   resolved "https://registry.yarnpkg.com/@material/feature-targeting/-/feature-targeting-4.0.0.tgz#8d9d1470801a1fd166773731613d9fa89e0fd85e"
   integrity sha512-0gk+f151vqmEdWkrQ9ocPlQRU9aUtSGsVBhletqIbsthLUsZIz9qk25FHjV1wHd/bGHknd9NH+T8ENprv3KLFg==
 
+"@material/floating-label@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material/floating-label/-/floating-label-4.0.0.tgz#288eac6b82ff472472f678032fc94024155a42c8"
+  integrity sha512-ovuZKhH7U+YmZk8kXftYCdEaU9InJdkBsPe4TP+dg4HiO1lWmd7ZxVsMo6iTl4yaFofkBPj3VDkbE1fLnHxKPA==
+  dependencies:
+    "@material/animation" "^4.0.0"
+    "@material/base" "^4.0.0"
+    "@material/rtl" "^4.0.0"
+    "@material/theme" "^4.0.0"
+    "@material/typography" "^4.0.0"
+    tslib "^1.9.3"
+
 "@material/icon-button@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@material/icon-button/-/icon-button-4.0.0.tgz#f7293462f1b4967712f9b8755b87c2228dcccc3d"
@@ -910,6 +922,28 @@
     "@material/base" "^4.0.0"
     "@material/feature-targeting" "^4.0.0"
     "@material/ripple" "^4.0.0"
+    "@material/theme" "^4.0.0"
+    tslib "^1.9.3"
+
+"@material/line-ripple@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material/line-ripple/-/line-ripple-4.0.0.tgz#e47eb1fe3ce7e28b36e5271c879dc59fee3bd19b"
+  integrity sha512-+vrgKlb2gUBIKxlzVKLn/tX76qJ0Z19RkH2i7mh4IdH8KxeEai8NQQYWqeOOKtyp8JbH0ObGyqJCwPo2VbHDmw==
+  dependencies:
+    "@material/animation" "^4.0.0"
+    "@material/base" "^4.0.0"
+    "@material/theme" "^4.0.0"
+    tslib "^1.9.3"
+
+"@material/notched-outline@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material/notched-outline/-/notched-outline-4.0.0.tgz#63c8d1f856de032b3c9a9f2654419de86f4b2b4a"
+  integrity sha512-9WNG7dZS83nu72kmoknA3XyvZQIxx8QBjEB2Q2KGyRp4Q8zrzWxfcvTYgiOsYgvz013JnTqaqe4g0wjl6v789g==
+  dependencies:
+    "@material/base" "^4.0.0"
+    "@material/floating-label" "^4.0.0"
+    "@material/rtl" "^4.0.0"
+    "@material/shape" "^4.0.0"
     "@material/theme" "^4.0.0"
     tslib "^1.9.3"
 
@@ -936,6 +970,25 @@
   integrity sha512-wmr05YBrEL462QPiJ+t9xh5RqxzylXYo/8DVZnb/1WA9GZ6m38UK/8Awtip1cZAN34pzD/9p5AydyywlQVoI+g==
   dependencies:
     "@material/feature-targeting" "^4.0.0"
+
+"@material/textfield@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@material/textfield/-/textfield-4.0.0.tgz#3b39a1ed1aee166b0eb757237ef1359eba312f36"
+  integrity sha512-1Xg+nriTqFB8+5k8sGkR8LBeD3dRgNuhvwyU8XrUeAs5l/HMfn4CWgbEyZTaJ2EEtFPxnKGedAYqCEwXngwGWg==
+  dependencies:
+    "@material/animation" "^4.0.0"
+    "@material/base" "^4.0.0"
+    "@material/density" "^4.0.0"
+    "@material/dom" "^4.0.0"
+    "@material/floating-label" "^4.0.0"
+    "@material/line-ripple" "^4.0.0"
+    "@material/notched-outline" "^4.0.0"
+    "@material/ripple" "^4.0.0"
+    "@material/rtl" "^4.0.0"
+    "@material/shape" "^4.0.0"
+    "@material/theme" "^4.0.0"
+    "@material/typography" "^4.0.0"
+    tslib "^1.9.3"
 
 "@material/theme@^4.0.0":
   version "4.0.0"
@@ -1073,6 +1126,14 @@
   dependencies:
     svelte "^3.0"
 
+"@smui/floating-label@^2.0.0-beta.0":
+  version "2.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@smui/floating-label/-/floating-label-2.0.0-beta.0.tgz#4cb9236768ecadd867c3d03d1c5cf5e328062ee3"
+  integrity sha512-UzUeUSwKYpjAoluHo7tzzzgzkgDR2Czfs/TgbiKtgS13L3/3ERSNGrlvVm83xNWINVeGNuuawPZcX75M4qSCew==
+  dependencies:
+    "@material/floating-label" "^4.0.0"
+    "@smui/common" "^2.0.0-beta.0"
+
 "@smui/icon-button@^2.0.0-beta.0":
   version "2.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/@smui/icon-button/-/icon-button-2.0.0-beta.0.tgz#d43756ebf24fe31c045026d084328f9118a065f5"
@@ -1083,12 +1144,54 @@
     "@smui/common" "^2.0.0-beta.0"
     "@smui/ripple" "^2.0.0-beta.0"
 
+"@smui/line-ripple@^2.0.0-beta.0":
+  version "2.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@smui/line-ripple/-/line-ripple-2.0.0-beta.0.tgz#35823334f25ad2488e74f465c2329bc8fd45aa2b"
+  integrity sha512-IDV8dyh3NHH8F1WT+8xphp2kRpgrZPGIj5zsu/ACEjzozC8TQXTfY3lXqJS6XnfofDqIMKshzrXGTBPRIXxe4A==
+  dependencies:
+    "@material/line-ripple" "^4.0.0"
+    "@smui/common" "^2.0.0-beta.0"
+
+"@smui/notched-outline@^2.0.0-beta.0":
+  version "2.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@smui/notched-outline/-/notched-outline-2.0.0-beta.0.tgz#18026d3025f76ca83f86110862392f032c2690b2"
+  integrity sha512-2qanjCkFyPHhqk2zobVEVLdpBo5g6YsmMBYxupoq8Awp0VFLpI2yYmYKL9A5AZslEy604RURUTL/tE6NKiPS6A==
+  dependencies:
+    "@material/notched-outline" "^4.0.0"
+    "@smui/common" "^2.0.0-beta.0"
+
+"@smui/paper@^2.0.0-beta.0":
+  version "2.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@smui/paper/-/paper-2.0.0-beta.0.tgz#4915f42981498065e7a84caf494ef32cff56c343"
+  integrity sha512-87YQRDQwkaiu0SnAHIwSpcdS0T8E1RRY7j4893xkCRV381g5n1h/GyqmiwJh6PS/dc5ymQ8R/WNv6uNzv6up4Q==
+  dependencies:
+    "@material/elevation" "^4.0.0"
+    "@material/feature-targeting" "^4.0.0"
+    "@material/shape" "^4.0.0"
+    "@material/theme" "^4.0.0"
+    "@material/typography" "^4.0.0"
+    "@smui/common" "^2.0.0-beta.0"
+
 "@smui/ripple@^2.0.0-beta.0":
   version "2.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/@smui/ripple/-/ripple-2.0.0-beta.0.tgz#0fb71b346c1e6d697f19625c426cfd78a833b03e"
   integrity sha512-OrliXCf/PDWmw1CRIP0RS3YAmtIoKL6qs8FyLIGmpDiXeK/xKTEfoW6gDztHS3sJ2kQVg/BFrLSrKKM5GyKdXg==
   dependencies:
     "@material/ripple" "^4.0.0"
+
+"@smui/textfield@^2.0.0-beta.0":
+  version "2.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@smui/textfield/-/textfield-2.0.0-beta.0.tgz#6d9af59b0fdf88cebcad3561bde7fdcc11c600c2"
+  integrity sha512-U9fMPV/zmOL4X+6J5dscRrTBVxkROeMPnz7t4h8geqXKal2rDIxVBsoBLREGjl0vvWOmu0WG+UHa0AuZDT6k4Q==
+  dependencies:
+    "@material/feature-targeting" "^4.0.0"
+    "@material/ripple" "^4.0.0"
+    "@material/rtl" "^4.0.0"
+    "@material/textfield" "^4.0.0"
+    "@smui/common" "^2.0.0-beta.0"
+    "@smui/floating-label" "^2.0.0-beta.0"
+    "@smui/line-ripple" "^2.0.0-beta.0"
+    "@smui/notched-outline" "^2.0.0-beta.0"
 
 "@tailwindcss/typography@^0.4.0":
   version "0.4.0"

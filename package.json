@@ -28,6 +28,8 @@
     "@rollup/plugin-url": "^5.0.0",
     "@smui/button": "^2.0.0-beta.0",
     "@smui/card": "^2.0.0-beta.0",
+    "@smui/paper": "^2.0.0-beta.0",
+    "@smui/textfield": "^2.0.0-beta.0",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.4",
     "cssnano": "^4.1.10",
