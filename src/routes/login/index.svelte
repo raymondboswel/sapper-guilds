@@ -1,23 +1,46 @@
 <script>
-  import Card, {
-    Content,
-    PrimaryAction,
-    Media,
-    MediaContent,
-    Actions,
-    ActionButtons,
-    ActionIcons
-  } from "@smui/card";
+  import Card from "@smui/card";
   import Button, { Label } from "@smui/button";
-  import Paper, { Title, Subtitle } from "@smui/paper";
+  import Paper, { Subtitle } from "@smui/paper";
   import Textfield from "@smui/textfield";
+  import { goto } from '@sapper/app';
+  import { stores } from '@sapper/app';
+  import {HttpClient} from '../../scripts/http';
+  const { preloading, page, session } = stores();
+  
+  const http = new HttpClient()
 
-  let email = "";
-  let password = "";
+  let email = "raymondboswel+3@gmail.com";
+  let password = "letmein123123";
 
   async function login() {
     console.log("Attempting log in");
-    const res = await fetch('http://localhost:4100/api/users/log_in', 
+    const res = await http.post('users/log_in', 
+      {
+         user: {
+           email, 
+           password}
+          }
+        );
+    if(res.status === 200) {
+      console.log("session", session);
+      const body = await res.json();
+      const token = body.data.token;
+      console.log("token", body.data.token);
+      session.update((sesh) => {return {...sesh, token}});
+
+      goto("/home")
+    } else {
+      session.token = false;
+    }
+    console.log(res);
+        
+    
+  } 
+
+  async function register() {
+    console.log("Attempting log in");
+    const res = await fetch('http://localhost:4100/api/users/register', 
       {method: 'POST', 
        headers: {
         "Content-Type":"application/json"
@@ -52,7 +75,7 @@
         </Label>
       </Button>
       <div class="text-center">OR</div>
-      <Button class="my-6"  >
+      <Button class="my-6" on:click={register} >
         <Label>
           Register
         </Label>
