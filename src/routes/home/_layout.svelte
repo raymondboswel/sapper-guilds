@@ -1,25 +1,25 @@
 <script lang="ts">
 	import Nav from '../../components/Nav.svelte';
-	import { writable } from "svelte/store";
-	import { goto } from '@sapper/app';
-	import { authStore } from './stores/auth-store';
+	// import { writable } from "svelte/store";
+	// import { goto } from '@sapper/app';
+	// import { authStore } from './stores/auth-store';
 	export let segment: string;
 	
 	
 
-  let storedToken;
-	try{
-	storedToken = localStorage.getItem("token");
-	authStore.set(storedToken)
-	authStore.subscribe((value) => {
-		(localStorage as any).setItem("token", value);
-	});
-	console.log("Got token",  storedToken);
-	if(!storedToken || storedToken.length === 0 ) {
-      goto("/login")
-    }} catch(e) {
-			console.log("error", e);
-		}
+  // let storedToken;
+	// try{
+	// storedToken = localStorage.getItem("token");
+	// authStore.set(storedToken)
+	// authStore.subscribe((value) => {
+	// 	(localStorage as any).setItem("token", value);
+	// });
+	// console.log("Got token",  storedToken);
+	// if(!storedToken || storedToken.length === 0 ) {
+  //     goto("/login")
+  //   }} catch(e) {
+	// 		console.log("error", e);
+	// 	}
 	
 </script>
 

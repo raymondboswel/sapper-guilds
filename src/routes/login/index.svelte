@@ -16,40 +16,52 @@
 
   async function login() {
     console.log("Attempting log in");
-    const res = await http.post('users/log_in', 
-      {
-         user: {
-           email, 
-           password}
-          }
+    const res = await fetch('/login', 
+      {        
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ email, password })}
         );
-    if(res.status === 200) {
-      console.log("session", session);
-      const body = await res.json();
-      const token = body.data.token;
-      console.log("token", body.data.token);
-      localStorage.setItem('token', body.data.token);
-      console.log("Navigating to home");
-      goto("/home")
+
+        const parsed = await res.json();
+
+    if (parsed.error) {
+      error = parsed.error;
     } else {
-      session.token = false;
+      console.log(parsed);
+      $session.token = parsed.token;
+      goto("/home")
     }
+
+    // if(res.status === 200) {
+    //   console.log("session", session);
+    //   const body = await res.json();
+    //   const token = body.data.token;
+    //   console.log("token", body.data.token);
+    //   localStorage.setItem('token', body.data.token);
+    //   console.log("Navigating to home");
+    //   goto("/home")
+    // } else {
+    //   session.token = false;
+    // }
     console.log(res);
         
     
   } 
 
   async function register() {
-    console.log("Attempting log in");
-    const res = await fetch('http://localhost:4100/api/users/register', 
+    const res = await fetch('/login', 
       {method: 'POST', 
        headers: {
-        "Content-Type":"application/json"
+        "Content-Type":"application/json",
+        Accept: "application/json",
        },
-       body: JSON.stringify({
-         user: {
+       body: JSON.stringify({       
            email, 
-           password}
+           password
           })
         })
         console.log(res);
