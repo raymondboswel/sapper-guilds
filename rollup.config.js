@@ -34,14 +34,13 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
       }),
       svelte({
-        preprocess: sveltePreprocess({ sourceMap: dev }),
         compilerOptions: {
           dev,
           hydratable: true,
           css: true,
         },
         preprocess,
-        emitCss: false,
+        emitCss: true,
       }),
       url({
         sourceDir: path.resolve(__dirname, "src/node_modules/images"),
@@ -109,14 +108,13 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
       }),
       svelte({
-        preprocess: sveltePreprocess({ sourceMap: dev }),
         compilerOptions: {
           dev,
           generate: "ssr",
           hydratable: true,
         },
         preprocess,
-        emitCss: false,
+        emitCss: true,
       }),
       url({
         sourceDir: path.resolve(__dirname, "src/node_modules/images"),
