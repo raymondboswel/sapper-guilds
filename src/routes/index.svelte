@@ -1,7 +1,8 @@
 <script>
 	import successkid from 'images/successkid.jpg';
 	
-  import Button, {Label} from '@smui/button';
+	import Button from '@smui/button';
+	
 </script>
 
 <style>
@@ -50,5 +51,5 @@
 </figure>
 
 <p class="flex flex-col"><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong>
-	<Button><Label>Material Button</Label></Button>
+	<Button>Material Button</Button>
 </p>

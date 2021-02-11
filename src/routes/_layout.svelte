@@ -1,7 +1,5 @@
 <script>
-  import Tailwindcss from '../Tailwindcss.svelte';
 </script>
 
-<Tailwindcss />
 
-<main><slot></slot></main>
+<main style="height: 100vh"><slot></slot></main>

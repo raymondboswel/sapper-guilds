@@ -1,17 +1,5 @@
-
-<!-- <script context="module">
-	export async function preload(page, session) {
-    // let { token } = session;
-    // console.log("token", token);
-		// if (!token) {
-		//     return this.redirect(302, '/login');
-		// }
-	}
-</script> -->
-
 <script context="module">
   export async function preload(page, session) {
-    console.log(session);
     const { token } = session;
 
     if (!token) {
@@ -31,35 +19,32 @@
 
     if (parsed.error) {
       return this.error(response.status, parsed.error);
-    }
-
-    console.log(parsed);
+    }  
 
     return { organizations: parsed.data };
   }
 </script>
 
 <script>
-    
+    import List, { Item, Text} from '@smui/list';
+    import Card from "@smui/card";
+    import { goto } from '@sapper/app';
+
     export let organizations = [];
-    // 
-    // const { preloading, page, session } = stores();
-    // let token;
-    // const unsubscribe= session.subscribe(sesh => {
-    //   token = sesh.token;
-    // })
-    // let token
-    // authStore.subscribe(t => {
-    //   console.log("Got token value", t);
-    //   token = t;
-    //   })
+
+    function gotoOrganization(organization) {
+      goto(`/home/organizations/${organization.id}`)
+    }
+    
     
 </script>
-<div>
-  <h1>Home:</h1>
+<Card class="my-auto">
+  <h1 class="text-2xl text-center m-4">Your Guilds</h1>
   <ul>
     {#each organizations as org}
-    <li>{org.name}</li>
+    <List class="demo-list">     
+      <Item on:SMUI:action={() => gotoOrganization(org)}><Text>{org.name}</Text></Item>
+    </List>
     {/each}
   </ul>
-</div>
+</Card>

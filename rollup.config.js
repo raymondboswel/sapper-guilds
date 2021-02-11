@@ -1,4 +1,5 @@
 import path from "path";
+import alias from "rollup-plugin-alias";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
@@ -9,7 +10,6 @@ import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import postcss from "rollup-plugin-postcss";
-import sveltePreprocess from "svelte-preprocess";
 const { preprocess } = require("./svelte.config");
 import typescript from "@rollup/plugin-typescript";
 
@@ -23,6 +23,23 @@ const onwarn = (warning, onwarn) =>
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
   warning.code === "THIS_IS_UNDEFINED" ||
   onwarn(warning);
+
+const dedupe = (importee) =>
+  importee === "svelte" || importee.startsWith("svelte/");
+
+const aliases = () => ({
+  resolve: [".svelte", ".js", ".scss", ".css"],
+  entries: [
+    {
+      find: /^@smui\/([^\/]+)$/,
+      replacement: path.resolve(__dirname, "..", "packages", "$1", "index.js"),
+    },
+    {
+      find: /^@smui\/([^\/]+)\/(.*)$/,
+      replacement: path.resolve(__dirname, "..", "packages", "$1", "$2"),
+    },
+  ],
+});
 
 export default {
   client: {
@@ -40,7 +57,7 @@ export default {
           css: true,
         },
         preprocess,
-        emitCss: true,
+        emitCss: false,
       }),
       url({
         sourceDir: path.resolve(__dirname, "src/node_modules/images"),
@@ -92,6 +109,11 @@ export default {
       !dev &&
         terser({
           module: true,
+          mangle: true,
+          compress: true,
+          format: {
+            comments: false,
+          },
         }),
     ],
 
@@ -114,7 +136,7 @@ export default {
           hydratable: true,
         },
         preprocess,
-        emitCss: true,
+        emitCss: false,
       }),
       url({
         sourceDir: path.resolve(__dirname, "src/node_modules/images"),

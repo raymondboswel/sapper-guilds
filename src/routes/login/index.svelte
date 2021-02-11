@@ -1,6 +1,6 @@
 <script>
   import Card from "@smui/card";
-  import Button, { Label } from "@smui/button";
+  import Button from "@smui/button";
   import Paper, { Subtitle } from "@smui/paper";
   import Textfield from "@smui/textfield";
   import { goto } from '@sapper/app';
@@ -31,25 +31,10 @@
     if (parsed.error) {
       error = parsed.error;
     } else {
-      console.log(parsed);
       $session.token = parsed.token;
       goto("/home")
     }
 
-    // if(res.status === 200) {
-    //   console.log("session", session);
-    //   const body = await res.json();
-    //   const token = body.data.token;
-    //   console.log("token", body.data.token);
-    //   localStorage.setItem('token', body.data.token);
-    //   console.log("Navigating to home");
-    //   goto("/home")
-    // } else {
-    //   session.token = false;
-    // }
-    console.log(res);
-        
-    
   } 
 
   async function register() {
@@ -70,9 +55,9 @@
   
 </script>
 <section class="flex flex-col container mx-auto mt-16 ">
-  <img src="/guilds_banner.png" alt="banner" />
-  <Card class="my-16">
-    <Paper class="paper-demo">
+  <img class="w-4/5 max-w-screen-sm mx-auto" src="/guilds_banner.png" alt="banner" />
+  <Card class="w-4/5 max-w-screen-sm mx-auto my-16">
+    <Paper >
       <title>Sign In</title>
       <Subtitle>Sign in, or register to start using Guilds</Subtitle>
       <content class="flex flex-col ">
@@ -83,15 +68,11 @@
           type="password"
         ></Textfield>
         <Button class="my-6" on:click={login}>
-          <Label>
-            Sign In
-          </Label>
+          Sign In
         </Button>
         <div class="text-center">OR</div>
         <Button class="my-6" on:click={register} >
-          <Label>
-            Register
-          </Label>
+         Register
         </Button>
       </content>
     </Paper>

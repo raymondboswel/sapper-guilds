@@ -2,6 +2,8 @@
 	<title>About</title>
 </svelte:head>
 
-<h1>About this site</h1>
+<div class="h-screen container flex flex-col justify-center items-center">
+	<h1 class="text-4xl text-center ">About this site</h1>
 
-<p>This is the 'about' page. There's not much here.</p>
+	<p class="text-center">This is the 'about' page. There's not much here.</p>
+</div>
