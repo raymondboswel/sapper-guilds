@@ -14,7 +14,7 @@ const { preprocess } = require("./svelte.config");
 import typescript from "@rollup/plugin-typescript";
 
 const mode = process.env.NODE_ENV;
-const dev = mode === "development";
+const dev = false;
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) =>
@@ -27,19 +27,7 @@ const onwarn = (warning, onwarn) =>
 const dedupe = (importee) =>
   importee === "svelte" || importee.startsWith("svelte/");
 
-const aliases = () => ({
-  resolve: [".svelte", ".js", ".scss", ".css"],
-  entries: [
-    {
-      find: /^@smui\/([^\/]+)$/,
-      replacement: path.resolve(__dirname, "..", "packages", "$1", "index.js"),
-    },
-    {
-      find: /^@smui\/([^\/]+)\/(.*)$/,
-      replacement: path.resolve(__dirname, "..", "packages", "$1", "$2"),
-    },
-  ],
-});
+console.log(dev);
 
 export default {
   client: {
@@ -106,15 +94,14 @@ export default {
           ],
         }),
 
-      !dev &&
-        terser({
-          module: true,
-          mangle: true,
-          compress: true,
-          format: {
-            comments: false,
-          },
-        }),
+      terser({
+        module: true,
+        mangle: true,
+        compress: true,
+        format: {
+          comments: false,
+        },
+      }),
     ],
 
     preserveEntrySignatures: false,

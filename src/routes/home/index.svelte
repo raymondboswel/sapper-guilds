@@ -26,8 +26,10 @@
 </script>
 
 <script>
-    import List, { Item, Text} from '@smui/list';
-    import Card from "@smui/card";
+    import List from '@smui/list/List.svelte';
+    import Item from '@smui/list/Item.svelte'
+    import Text from '@smui/list/Text';
+    import Card from "@smui/card/Card.svelte";
     import { goto } from '@sapper/app';
 
     export let organizations = [];
@@ -39,7 +41,9 @@
     
 </script>
 <Card class="my-auto">
-  <h1 class="text-2xl text-center m-4">Your Guilds</h1>
+  <h1 class="text-2xl text-center m-4">Your Organizations</h1>
+  <h2 class="text-xl text-center m-4">Select one of your organizations to get started, or
+    <a class="underline cursor-pointer text-blue-400" href="/#">create a new one.</a></h2>
   <ul>
     {#each organizations as org}
     <List class="demo-list">     

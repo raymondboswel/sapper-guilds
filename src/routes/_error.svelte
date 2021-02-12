@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let status: number;
-	export let error: Error;
+	export let status: number = 0;
+	export let error: Error = undefined;
 
 	const dev = process.env.NODE_ENV === 'development';
 </script>

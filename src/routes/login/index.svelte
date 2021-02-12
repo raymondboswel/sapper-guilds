@@ -1,7 +1,7 @@
 <script>
   import Card from "@smui/card";
   import Button from "@smui/button";
-  import Paper, { Subtitle } from "@smui/paper";
+  import Paper, { Subtitle, Title} from "@smui/paper";
   import Textfield from "@smui/textfield";
   import { goto } from '@sapper/app';
   import { stores } from '@sapper/app';
@@ -58,7 +58,7 @@
   <img class="w-4/5 max-w-screen-sm mx-auto" src="/guilds_banner.png" alt="banner" />
   <Card class="w-4/5 max-w-screen-sm mx-auto my-16">
     <Paper >
-      <title>Sign In</title>
+      <Title>Welcome to guilds!</Title>
       <Subtitle>Sign in, or register to start using Guilds</Subtitle>
       <content class="flex flex-col ">
         <Textfield label="Email" bind:value="{email}" type="email"></Textfield>
